@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   kcp-dev:
-    build: https://github.com/fire-ant/kcp.git#main
-      
+    build: https://raw.githubusercontent.com/fire-ant/kcp/main/Dockerfile
     ports:
       - 6443:6443
     entrypoint: /kcp
