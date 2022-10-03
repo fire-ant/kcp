@@ -6,6 +6,7 @@ coverage.*
 tools
 build
 .vscode
+kcp
 
 # JetBrains IDE files
 .idea/
