@@ -1,0 +1,20 @@
+# For more on Extensions, see: https://docs.tilt.dev/extensions.html
+load('ext://restart_process', 'docker_build_with_restart')
+
+docker_build_with_restart(
+  'kcp-dev',
+  '.',
+  entrypoint=['/kcp'],
+  dockerfile='./Dockerfile',
+  live_update=[
+    sync('./config', '/config'),
+    sync('./pkg', '/pkg'),
+    sync('./cmd', '/cmd'),
+    sync('./third_party', '/third_party'),
+    sync('./hack', '/hack'),
+    sync('./.git', '/.git'),
+  ],
+)
+
+docker_compose('docker-compose.yml')
+

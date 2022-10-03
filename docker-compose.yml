@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  kcp-dev:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - target: 6443
+        host_ip: 127.0.0.1
+        published: 6443
+        protocol: tcp
+        mode: host
+    entrypoint: /kcp
+    command: start --bind-address 0.0.0.0
+    environment:
+      - KUBECONFIG=/data/.kcp/admin.kubeconfig
+    volumes:
+      - ./kcp:/data/.kcp/
+    user: root
