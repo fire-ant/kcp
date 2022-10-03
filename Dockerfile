@@ -34,7 +34,7 @@ COPY pkg/ pkg/
 COPY cmd/ cmd/
 COPY third_party/ third_party/
 COPY hack/ hack/
-COPY .git/ .git/
+# COPY .git/ .git/ -remove for remote build
 # To make sure hack/verify-go-versions.sh succeeds
 COPY .ci-operator.yaml .
 COPY Dockerfile .
